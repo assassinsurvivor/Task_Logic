@@ -9,15 +9,15 @@ Assignment
         
 1. To upload a directory containing files as a bundle:
         
-        Client.create_and_upload_bundle(__dir_path__, tag="file_bundle_upload")
+        Client.create_and_upload_bundle(dir_path, tag="file_bundle_upload")
 
 1. To set up resources :
         
-        res=sc.Resources(cpu=4,gpu=1,memory=16,disk=32,gpu_memory=__['8GB','16GB', '32GB']__) #To choose from available resources we can pass a list
+        res=sc.Resources(cpu=4,gpu=1,memory=16,disk=32,gpu_memory=['8GB','16GB', '32GB']) #To choose from available resources we can pass a list
 
 1. To add bundles and smi to the instance :
         
-        req=sc.Requirements(bundles=__[bid]__,smi='ubuntu18.04-cuda10.2-410.79')
+        req=sc.Requirements(bundles=[bundle-ids],smi='ubuntu18.04-cuda10.2-410.79')
     
 1. To install specific python libraries along with a specific python package we can add that command as a part of the job task:
         
@@ -31,13 +31,13 @@ Assignment
     
 1. To download output files created inside a job first we define the output structure and add that to a bundle which can be downloaded:
         
-        simcloud.Output(__[list_of_output_files_to_download]__) #staging area
-        Client.add_output_bundle_task(job,outputs=__[list_of_output_files_to_download]__)
-        Client.download_output(job=job_info,dest_dir=__[local_save_path]__)
+        simcloud.Output([list_of_output_files_to_download]) #staging area
+        Client.add_output_bundle_task(job,outputs=[list_of_output_files_to_download])
+        Client.download_output(job=job_info,dest_dir=[local_save_path])
     
 1. To delete a bundle or a job after successful completion :
 
-        Client.archive_job(__job-id__)
-        Client.delete_bundle(__bundle-id__)
+        Client.archive_job(job-id)
+        Client.delete_bundle(bundle-id)
         
     
