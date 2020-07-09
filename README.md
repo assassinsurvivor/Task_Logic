@@ -29,9 +29,10 @@ Assignment
         Client.add_output_bundle_task(job,outputs=__[list_of_output_files_to_download]__)
         Client.download_output(job=job_info,dest_dir=__[local_save_path]__)
     
-1. To delete a bundle or a job after successful completion :
-'''
+*. To delete a bundle or a job after successful completion :
+
+        '''
         Client.archive_job(__job-id__)
         Client.delete_bundle(__bundle-id__)
-'''
+        '''
     
